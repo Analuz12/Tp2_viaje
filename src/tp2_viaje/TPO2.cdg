@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TPO2">
+  <ClassDiagramComponents>
+    <Class name="Ciudad" package="" visibility="public" xPosition="50.0" yPosition="367.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="ruta" type="Int" visibility="private"/>
+        <Field name="km" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="ruta"/>
+          <Argument type="Double" name="km"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Vehiculo" package="" visibility="public" isAbstract="true" xPosition="587.0" yPosition="386.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="patente" type="String" visibility="private"/>
+        <Field name="c" type="Combustible" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoDeCombustible" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Auto" package="" visibility="public" xPosition="558.0" yPosition="628.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="Combustible" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoDeCombustible" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Camion" package="" visibility="public" xPosition="208.0" yPosition="628.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="Combustible" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoDeCombustible" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TestViaje" package="" visibility="public" xPosition="1003.0" yPosition="98.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Combustible" package="" visibility="public" xPosition="890.0" yPosition="376.0">
+      <Fields>
+        <Field name="tipoDeCombustible" type="String" visibility="private"/>
+        <Field name="precioCombustible" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="tipoDeCombustible"/>
+          <Argument type="Double" name="precioCombustible"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Viaje" package="" visibility="public" xPosition="293.0" yPosition="-1.0">
+      <Fields>
+        <Field name="origen" type="Ciudad" visibility="private"/>
+        <Field name="destino" type="Ciudad" visibility="private"/>
+        <Field name="distancia" type="Double" visibility="private"/>
+        <Field name="vehiculo" type="Vehiculo" visibility="private"/>
+        <Field name="cantidadPeajes" type="Int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Ciudad" name="origen"/>
+          <Argument type="Ciudad" name="destino"/>
+          <Argument type="Vehiculo" name="vehiculo"/>
+          <Argument type="int" name="cantidadPeajes"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Ciudad" name="origen"/>
+          <Argument type="Ciudad" name="destino"/>
+          <Argument type="Double" name="distancia"/>
+          <Argument type="Vehiculo" name="vehiculo"/>
+          <Argument type="int" name="cantidadPeajes"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoTotal" returnType="Double" visibility="public"/>
+        <Method name="calcularCostoPeaje" returnType="Double" visibility="public"/>
+        <Method name="calcularDistancia" returnType="Double" visibility="public"/>
+        <Method name="calcularCostoTotalCombustible" returnType="Double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Camioneta" package="" visibility="public" xPosition="890.0" yPosition="628.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="patente"/>
+          <Argument type="Combustible" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoDeCombustible" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Camion" target="Vehiculo"/>
+    <IsRelation name="is" source="Camioneta" target="Vehiculo"/>
+    <HasRelation name="tiene" source="Viaje" target="Vehiculo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Auto" target="Vehiculo"/>
+    <HasRelation name="tiene" source="Viaje" target="Ciudad" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Vehiculo" target="Combustible" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="TestViaje" target="Viaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
